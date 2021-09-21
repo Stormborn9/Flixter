@@ -2,18 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:id="@+id/container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="false"
+    android:background="#0C0C0C">
 
-    <ImageView
-        android:id="@+id/ivPoster"
-        android:layout_width="250dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvPoster"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:cardCornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/ivPoster"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <ImageView
+            android:id="@+id/playOverlay"
+            android:layout_width="54dp"
+            android:layout_height="32dp"
+            android:layout_alignLeft="@id/ivPoster"
+            android:layout_alignTop="@id/ivPoster"
+            android:layout_alignBottom="@id/ivPoster"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:foregroundTint="#28FFFFFF"
+            android:src="@drawable/yt_icon_mono_dark"
+            android:visibility="visible" />
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:id="@+id/tvTitle"
@@ -24,9 +52,11 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="2dp"
         android:layout_marginEnd="-1dp"
-        android:layout_toEndOf="@+id/ivPoster"
+        android:layout_toEndOf="@id/cvPoster"
+        android:fontFamily="casual"
         android:textColor="@color/white"
         android:textSize="24sp"
+        android:transitionName="titleTransition"
         tools:text="Shang-Chi and the Legend of the Ten Rings" />
 
     <TextView
@@ -36,7 +66,11 @@
         android:layout_below="@+id/tvTitle"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:layout_toEndOf="@+id/ivPoster"
+
+        android:layout_toEndOf="@id/cvPoster"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/white"
+        android:transitionName="desTransition"
         tools:text="Shang-Chi must confront the past he thought he left behind when he is drawn into the web of the mysterious Ten Rings organization." />
+
 </RelativeLayout>
